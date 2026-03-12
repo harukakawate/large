@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ9）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ9）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '国際連合は世界平和と安全の維持のために設立された国際機関であり加盟国間の対話と協力を促進しています',
+        'G7サミットは主要先進国が集まり経済政策や地政学的課題について議論する重要な国際会議です',
+        'ASEAN諸国との連携強化は東南アジアの安定と発展に寄与するとともに日本の外交の重要な柱です',
+        '日米同盟は日本の安全保障の基軸であるとともに地域の平和と安定に大きく貢献しています',
+        '核軍縮と不拡散体制の強化は唯一の被爆国として日本が国際社会に対して積極的に発信すべき課題です',
+        '多国間主義の堅持は国際秩序を維持しルールに基づく国際社会を守るために日本が推進する外交理念です',
+        '開発途上国への政府開発援助は経済発展と貧困削減を支援し日本の国際貢献の重要な柱となっています',
+        '国際刑事裁判所は重大な人権侵害を裁く国際的な司法機関として法の支配の普及に貢献しています',
+        '難民問題は紛争や迫害から逃れた人々の保護と国際社会による受け入れ体制の整備が求められています',
+        '国境を越えた感染症対策は世界保健機関を中心とした国際協力体制の強化が不可欠な課題です',
+        'サイバー空間における国際的なルール形成は各国の利害が対立する中で困難な交渉が続いています',
+        '気候変動パリ協定の実施は各国が温室効果ガス削減目標を達成するための具体的な行動を求めています',
+        '中東地域の安定化に向けた外交努力は複雑な宗教的民族的対立を抱える同地域の平和実現に不可欠です',
+        '朝鮮半島の非核化と東北アジアの平和安定の実現は日本の安全保障上の最重要課題の一つです',
+        '自由貿易の推進と保護主義への対抗は世界経済の持続的な成長と発展のために重要な外交課題です',
+        '宇宙空間の平和利用に関する国際的な枠組みの構築は宇宙開発が進む中で急務となっています',
+        '海洋法に基づく航行の自由の確保は国際海洋秩序の維持と地域の安定のために重要な意義を持っています',
+        '法の支配と民主主義の普及は国際社会の安定と平和に直結する普遍的な価値として日本が推進しています',
+        'テロリズムへの対抗は国際社会が連携して取り組むべき脅威であり情報共有と協力体制の強化が鍵です',
+        '国連安全保障理事会の改革は現代の国際社会の実態を反映した意思決定体制の実現を目指しています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P09-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

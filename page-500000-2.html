@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ2）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ2）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '量子コンピューティングは従来のコンピュータでは解くことができなかった複雑な問題を解決する可能性を持っています',
+        'ブロックチェーン技術は金融取引の透明性と安全性を高める革新的な分散型台帳技術として注目されています',
+        'ロボット工学の発展により製造業だけでなく医療や介護の分野でも自動化が急速に進んでいます',
+        'バイオテクノロジーの進歩により新しい医薬品の開発や遺伝子治療の実用化が現実のものとなってきています',
+        'フィンテックの台頭により従来の金融機関のビジネスモデルが根本から問い直されています',
+        'サイバーセキュリティの重要性が増す中で企業や政府機関は情報資産を守るための対策強化を迫られています',
+        'クラウドコンピューティングの普及により企業のIT基盤が大きく変化し業務の効率化が進んでいます',
+        'モビリティ革命の波が自動車産業だけでなく都市計画や物流システム全体に大きな変化をもたらしています',
+        'スマートシティの構想が世界各地で進められており都市インフラのデジタル化が加速しています',
+        'データサイエンスの発展により膨大なデータから価値ある洞察を引き出すことが企業の競争力の源泉となっています',
+        'メタバースの技術発展によりリアルとバーチャルの境界が曖昧になり新しい社会空間が形成されつつあります',
+        'ナノテクノロジーは素材科学や医療分野において革命的なイノベーションをもたらす可能性を秘めています',
+        'スマートグリッドの整備により電力需給の最適化と再生可能エネルギーの効率的な活用が可能となっています',
+        '自動運転技術の実用化に向けた研究開発が世界各国で活発に進められています',
+        '拡張現実と仮想現実の技術は教育や医療訓練など多様な分野での応用が期待されています',
+        'デジタルツインの技術により実世界の複雑なシステムをバーチャル上でシミュレーションすることが可能です',
+        'エッジコンピューティングの普及によりリアルタイム処理が必要なアプリケーションの性能が大幅に向上しています',
+        '5G通信の普及により高速大容量通信が実現しあらゆるデバイスがネットワークに接続される社会が到来しています',
+        'オープンソースソフトウェアの活用により企業の開発効率が向上しイノベーションのサイクルが加速しています',
+        'マシンラーニングアルゴリズムの改善により複雑なパターン認識や予測精度が飛躍的に向上しています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P02-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ5）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ5）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '日本の自動車産業は世界をリードする技術力と品質管理で長年にわたり経済成長の牽引役を担ってきました',
+        '家電産業の発展は日本の戦後復興を支えた重要な産業であり今日のデジタル家電の原点ともなっています',
+        '半導体産業の競争力強化は日本の経済安全保障において喫緊の課題として位置づけられています',
+        '日本の鉄鋼産業は高品質な製品を安定供給することで国内外のインフラ整備に大きく貢献しています',
+        '化学産業は素材から医薬品まで幅広い分野で日本の産業競争力を支える重要な基盤産業です',
+        '造船業は日本が世界トップを誇った産業であり今日も高付加価値船舶の建造で技術力を発揮しています',
+        '繊維産業は日本の伝統的な産業として発展し今日では機能性素材や先端繊維技術で世界に貢献しています',
+        '食品産業は日本の豊かな食文化を支える基幹産業であり安全性と品質へのこだわりが世界で評価されています',
+        '医薬品産業は高齢化社会の進展とともに成長を続け革新的な新薬の開発が国民の健康を守っています',
+        '建設業は社会インフラの整備や維持管理において欠かせない役割を担い地域経済を支えています',
+        '不動産業は住宅供給から商業施設開発まで幅広く人々の生活と都市の発展を支えています',
+        '金融業は経済の血液ともいわれる資金を円滑に流通させることで産業全体の発展を支えています',
+        '小売業は消費者の多様なニーズに応えながら日本独自のサービス品質で競争力を維持しています',
+        '物流産業は電子商取引の急拡大とともに重要性が増しており配送の高速化と効率化が進んでいます',
+        '観光産業はインバウンド需要の拡大とともに地域経済の活性化において重要な役割を果たしています',
+        '情報サービス産業はデジタル化の加速に伴い急成長を遂げ経済の主役の一つとなっています',
+        '農業の六次産業化は生産から加工販売までを統合することで農業者の収益向上を目指す取り組みです',
+        '水産業は日本の食文化を支える重要な産業であり資源管理と持続可能な漁業の確立が求められています',
+        '林業は国土の約七割を占める森林を適切に管理し木材供給と環境保全を両立する重要な産業です',
+        'エネルギー産業は脱炭素社会の実現に向けて大きな転換期を迎え再生可能エネルギーへの投資が加速しています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P05-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

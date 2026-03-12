@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（10万文字）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（10万文字）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '気候変動は現代社会が直面している最も深刻な課題の一つであり早急な対策が求められています',
+        'デジタルトランスフォーメーションは企業の競争力を大きく左右する時代の転換点となっています',
+        '日本の伝統文化は世界中から高い評価を受けており次世代への継承が重要な課題となっています',
+        '健康的な生活を送るためにはバランスのとれた食事と適度な運動および十分な睡眠が欠かせません',
+        'インターネットの急速な普及により世界中の情報へのアクセスが格段に向上し社会が変化しました',
+        '再生可能エネルギーへの移行は地球環境保護の観点から最優先課題となっており各国が取り組んでいます',
+        '少子高齢化の進行により日本の社会構造が大きく変化し社会保障制度の見直しが急務となっています',
+        '農業分野においても人工知能やセンサー技術などの先端技術の導入が着実に進んでいます',
+        '宇宙開発はかつては国家主導のプロジェクトでしたが近年は民間企業も積極的に参入しています',
+        '自然災害が多い日本においては日頃からの防災対策と備えの充実が国民の命を守るために不可欠です',
+        '生涯学習の重要性が現代社会においてますます高まり大人になってからも学び続けることが求められます',
+        '多文化共生社会の実現に向けた取り組みが世界各国で進められており日本でも重要な課題となっています',
+        '医学と医療技術の急速な進歩によりこれまで治療困難とされていた多くの疾患が克服されつつあります',
+        'キャッシュレス決済やデジタル通貨の普及により金融サービスのあり方が根本から変わりつつあります',
+        'スポーツは個人の健康促進だけでなく地域コミュニティの活性化や国際交流にも重要な役割を担っています',
+        '日本が誇る豊富な観光資源は国内外から多くの観光客を引きつける大きな魅力となっています',
+        'ESGへの取り組みが企業経営において不可欠な要素となり持続可能なビジネスモデルへの転換が急務です',
+        '都市への人口集中と地方の過疎化は日本が解決すべき重要な社会課題として長年認識されています',
+        '日本の製造業は高度な技術力と徹底した品質管理によって世界市場での競争力を長年維持してきました',
+        '人工知能の急速な発展により様々な産業で業務の自動化と効率化が急速に進みつつあります',
+      ];
+
+      var TARGET_MIN = 100000;
+      var TARGET_MAX = 110000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' #' + String(counter).padStart(5, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+
+  <!--
+    trans.js を設定してください
+    <script src="https://cdn.example.com/trans.js?id=YOUR_SITE_ID"></script>
+  -->
+</body>
+</html>

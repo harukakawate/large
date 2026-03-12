@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ10）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ10）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '野球は日本で最も人気のあるスポーツの一つであり高校野球甲子園大会は夏の風物詩として親しまれています',
+        'Jリーグの発足は日本サッカーのプロ化を実現し国内競技水準の大幅な向上をもたらしました',
+        '柔道は日本発祥の武道として世界に広まりオリンピックの正式種目として国際的に高い地位を確立しています',
+        '大相撲は日本の国技として長い歴史を持ち伝統的な文化と現代のエンターテインメントが融合しています',
+        '女性スポーツの発展は女性アスリートの活躍が社会的な認知を高め後進の育成にも貢献しています',
+        'eスポーツは若年層を中心に急速に普及し新たなスポーツ文化として社会的な認知度が高まっています',
+        'マラソンは市民ランナーから世界トップ選手まで幅広い層が参加できる大衆スポーツとして定着しています',
+        '水泳は全身運動として健康増進効果が高くあらゆる年代の人々に幅広く親しまれているスポーツです',
+        'バレーボールは日本の強豪国としての地位を維持しており男女ともに世界大会での活躍が期待されています',
+        'スポーツは国際親善の場として異なる文化的背景を持つ人々が言語を超えてつながれる機会を提供しています',
+        '障害者スポーツの振興はパラリンピック運動の発展とともに障害者の社会参加を促進する重要な取り組みです',
+        'スポーツ医学の発展によりアスリートの傷害予防とパフォーマンス向上のための科学的サポートが充実しています',
+        '学校のスポーツ活動は競技力向上だけでなくチームワークや忍耐力など人間形成においても重要な役割があります',
+        'オリンピックのコンパクト化と持続可能な開催モデルの模索は国際オリンピック委員会の重要な課題です',
+        'ドーピング防止活動はスポーツの公正性を守り選手の健康を保護するための国際的な取り組みです',
+        'スポーツツーリズムの振興は地域活性化と観光振興の観点から大きな可能性を持つ分野として注目されています',
+        'アーチェリーや射撃など一般にはなじみの薄い競技でも日本人選手が世界トップレベルで活躍しています',
+        'スポーツビジネスの拡大は放映権やスポンサーシップを通じて大きな経済効果をもたらしています',
+        'フィジカルリテラシーの向上は子どもたちが生涯にわたってスポーツを楽しむ基盤を作ることを目指しています',
+        'マインドフルネスとスポーツ心理学の応用によりアスリートのメンタルパフォーマンスの向上が図られています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P10-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

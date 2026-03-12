@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ4）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ4）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '日本の食文化は素材の持ち味を活かした調理法と四季折々の食材を大切にする独自の食哲学が根底にあります',
+        'ラーメンは日本独自に発展を遂げた麺料理でその種類と味の多様性は世界的にも類を見ません',
+        '和食がユネスコ無形文化遺産に登録されたことでその独自性と健康への効果が世界的に認められました',
+        '日本酒の醸造技術は長い歴史の中で磨かれ今日では世界各国で愛飲される日本を代表する飲料となっています',
+        '居酒屋文化は日本のコミュニティを支える重要な社交の場として人々の絆を深める役割を担ってきました',
+        '弁当文化は日本独自の食文化であり栄養と見た目の美しさを追求した芸術作品ともいえる食事スタイルです',
+        '豆腐は大豆から作られる低カロリーで高タンパクな食品として日本の食生活に欠かせない存在です',
+        '味噌は発酵食品として日本の伝統的な調味料であり地域ごとに異なる風味や色合いが特徴です',
+        '出汁は日本料理の根幹をなすうま味の基盤であり昆布や鰹節から丁寧に取ることで料理に深みが生まれます',
+        '寿司は江戸時代に屋台料理として生まれ現代では世界各国でその形を変えながら愛されています',
+        '天ぷらはポルトガルの影響を受けながらも日本独自に発展した揚げ料理として世界中で知られています',
+        '蕎麦は古くから日本人に親しまれてきた麺類であり特にそば職人の技術は匠の技として尊重されています',
+        '抹茶は茶道に使われるだけでなく現代ではスイーツや飲料として世界的なブームを巻き起こしています',
+        '発酵食品は腸内環境を整える効果があり味噌や醤油納豆など日本の食卓には多くの発酵食品が並びます',
+        'おにぎりは手軽に食べられる日本の伝統的な携帯食として現代でも広く親しまれ海外でも人気があります',
+        'うなぎの蒲焼きは江戸時代から続く日本の伝統料理で甘辛いタレとふっくらとした身の組み合わせが絶品です',
+        '柚子胡椒は九州地方の伝統的な調味料で柚子の香りと唐辛子の辛みが独特の風味を生み出しています',
+        '京懐石料理は茶道の精神を料理に取り入れた日本料理の最高峰として国内外から高い評価を受けています',
+        '明治以降に日本で発展したカレーライスは今や日本の国民食として老若男女に広く愛されています',
+        'もつ鍋は福岡を代表するご当地料理であり臓物の濃厚な旨味とスープの絶妙なバランスが魅力です',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P04-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

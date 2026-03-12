@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ6）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ6）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '初等教育における読み書き計算の基礎学力の定着は子どもたちの将来の可能性を広げる土台となります',
+        '大学入試改革は知識の詰め込みから思考力判断力表現力を重視する方向へと転換が進んでいます',
+        'プログラミング教育の必修化により子どもたちに論理的思考力と問題解決能力を育む教育が始まっています',
+        '小学校英語教育の充実は国際社会で活躍できる人材育成のための重要な施策として位置づけられています',
+        'インクルーシブ教育の推進により障害のある子どもとない子どもが共に学ぶ環境づくりが進んでいます',
+        'アクティブラーニングの導入により学生が主体的に考え議論しながら学ぶ授業スタイルが広がっています',
+        '教員の働き方改革は質の高い教育を持続的に提供するために学校現場の業務負担軽減が急務となっています',
+        'STEM教育の充実は科学技術立国日本の将来を担う人材育成において極めて重要な意味を持っています',
+        '不登校対策として学校以外の居場所づくりやオンライン教育の活用が積極的に進められています',
+        '生徒の多様な才能を伸ばすために学校が一人ひとりに合わせた個別最適化された学習支援を提供しています',
+        '大学の国際競争力強化のために研究環境の整備や外国人研究者の受け入れ促進が図られています',
+        '社会人の学び直しを支援するリカレント教育の充実が労働市場の変化への対応として注目されています',
+        '体育教育は身体能力の向上だけでなく協調性やフェアプレーの精神を育む重要な教育活動です',
+        '道徳教育は他者への思いやりや社会のルールを守る意識を养う人間形成の基盤として重要です',
+        '図書館は学校における学習の中心的な場所として知識への好奇心を育てる環境を提供しています',
+        '特別支援教育は発達障害や学習障害のある子どもたちの個性と可能性を最大限に引き出す教育です',
+        'グローバル人材育成のために留学支援制度の充実と国内における多文化理解教育が推進されています',
+        'デジタル教科書の導入は従来の紙の教科書では実現できなかった双方向的な学習体験を可能にしています',
+        '部活動の地域移行は教員負担の軽減と持続可能な子どもたちのスポーツ文化活動環境の整備を目指しています',
+        'キャリア教育の充実は生徒が自分の将来像を描き主体的に進路を選択する力を育てることを目的としています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P06-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

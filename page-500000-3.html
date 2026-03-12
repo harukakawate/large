@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ3）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ3）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '江戸時代の文化は庶民の生活の中から生まれた独自の芸術や文学が花開いた豊かな時代でした',
+        '奈良の大仏をはじめとする仏教文化は日本の精神的な基盤を形成する重要な文化遺産です',
+        '茶道の精神は単に茶を点てるという行為を超えて日本人の美意識と哲学を体現しています',
+        '武士道の倫理観は忠義誠実礼節を重んじ現代の日本人の精神性にも大きな影響を与え続けています',
+        '能楽は世界最古の舞台芸術の一つとして世界文化遺産に登録されている日本を代表する伝統芸能です',
+        '歌舞伎の華やかな衣装と見事な演技は数百年にわたって観客を魅了し続けている伝統芸術です',
+        '俳句は十七音節という制約の中で自然や人生の本質を捉える日本独特の詩的表現形式です',
+        '源氏物語は千年以上前に書かれた世界最古の長編小説として文学史に輝く偉大な作品です',
+        '浮世絵の鮮やかな色彩と独特の構図は江戸時代の庶民文化を生き生きと伝える芸術作品です',
+        '万葉集に収められた和歌は奈良時代の人々の感情や自然観を現代に伝える貴重な文化遺産です',
+        '日本庭園の設計思想は自然の美しさを凝縮して表現するという独自の美学に基づいています',
+        '禅の思想は日本の文化全体に深く浸透し建築から料理に至るまで多くの分野に影響を与えています',
+        '宮本武蔵が記した五輪書は剣術の奥義を説きながら人生哲学や戦略論としても高く評価されています',
+        '伊勢神宮の式年遷宮は二十年ごとに社殿を造り替える日本古来の伝統的な神事です',
+        '沖縄の独自の文化は琉球王国時代の伝統を受け継ぎ本土とは異なる豊かな文化遺産を育んでいます',
+        '宝塚歌劇団は百年以上の歴史を持ち独自の舞台芸術を発展させてきた日本固有の文化です',
+        '漆器は日本の伝統工芸品の代表格であり精巧な技術と美しさで世界的に高い評価を受けています',
+        '西陣織の繊細な技法は千年以上の歴史を持つ京都の伝統的な絹織物の技術です',
+        '落語は江戸時代から続く話芸で笑いを通して人間の本質を鋭く描き出す芸術形式です',
+        '三味線の音色は日本音楽の代表的な楽器として民謡や歌舞伎など様々な場面で用いられています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P03-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

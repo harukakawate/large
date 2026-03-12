@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ8）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ8）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '超高齢社会に突入した日本では介護保険制度の持続可能性を確保するための抜本的な改革が必要です',
+        '地域包括ケアシステムの構築は高齢者が住み慣れた地域で安心して生活し続けるための仕組みです',
+        '認知症の早期発見と適切なケアは本人や家族の生活の質を維持するために極めて重要な取り組みです',
+        '孤独死の防止は一人暮らし高齢者の増加に伴い地域コミュニティが取り組むべき社会課題です',
+        '障害者の就労支援は自立した生活を実現し社会参加を促進するための重要な施策として推進されています',
+        '子育て支援策の充実は少子化に歯止めをかけるとともに女性の社会進出を後押しする重要な政策です',
+        '成年後見制度は判断能力が低下した高齢者や障害者の財産と権利を守るための法的な仕組みです',
+        'ダブルケアの問題は育児と介護を同時に担う家族への支援の必要性を社会に認識させています',
+        '生活保護制度は最低限度の生活を保障する社会のセーフティネットとして重要な役割を果たしています',
+        '外国人介護人材の受け入れ拡大は深刻な介護人材不足を解消するための現実的な政策として注目されています',
+        '自殺予防対策は精神的な苦痛を抱える人々への相談支援と社会的なつながりの強化が鍵となります',
+        'DV被害者の支援体制の強化は被害者が安全に生活を再建できる環境の整備が急務となっています',
+        '子どもの貧困対策は将来の格差固定を防ぎすべての子どもに平等な機会を保障するために重要です',
+        'ひとり親家庭への支援は経済的な困難を抱える家庭の生活安定と子どもの健全な発育を支えています',
+        '住宅セーフティネットの充実は低所得者層や高齢者などが安定した住まいを確保するための制度です',
+        '路上生活者の自立支援は住居のない状態から脱却し社会復帰を果たすための継続的な支援が必要です',
+        '社会的孤立の防止には地域のつながりを再構築しすべての人が居場所を持てる社会を目指すことが重要です',
+        '精神障害者の地域移行支援は長期入院から地域生活への移行を促進するための重要な政策的取り組みです',
+        '薬物依存症からの回復支援は医療的介入と社会的サポートの組み合わせによる包括的なアプローチが効果的です',
+        '依存症全般への対応としてギャンブル依存やアルコール依存への相談支援体制の整備が進められています',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P08-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>

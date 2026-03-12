@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳テストページ（50万文字 ページ7）</title>
+  <style>
+    body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #444; padding-bottom: 8px; margin-bottom: 20px; }
+    #content div { margin-bottom: 4px; }
+    #char-info { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(20,20,20,0.85); color: #eee; padding: 6px 16px; font-size: 12px; }
+    #char-info strong { color: #7cf; }
+  </style>
+  <script src="https://sandbox-d.ea-shutto-translation.net/trans.js?id=80645"></script>
+</head>
+<body>
+  <h1>翻訳機能テストページ（50万文字 ページ7）</h1>
+  <div id="content"></div>
+  <div id="char-info">文字数: <strong id="char-count">-</strong></div>
+
+  <script>
+    (function () {
+      var BASE_TEXTS = [
+        '日本の国立公園は豊かな自然環境を次世代に引き継ぐために厳格な保護管理のもとで運営されています',
+        '里山の保全は生物多様性を維持するとともに地域住民の生活と文化を守る重要な取り組みです',
+        '絶滅危惧種の保護活動は生態系のバランスを保つために国際的な協力のもとで推進されています',
+        '海洋プラスチック汚染は深刻な環境問題として世界各国が解決策を模索しています',
+        '森林の減少は地球温暖化を加速させるだけでなく生物多様性の喪失にも直結する深刻な問題です',
+        'サンゴ礁の白化現象は海水温の上昇が原因であり海洋生態系への深刻な影響が懸念されています',
+        '環境アセスメントは開発事業が自然環境に与える影響を事前に調査評価する重要な制度です',
+        'グリーンインフラの整備は自然の機能を活用した持続可能な都市環境の形成に貢献しています',
+        '生物多様性条約に基づく国内行動計画の策定と実施が自然保護の国際的な枠組みの中で進められています',
+        '湿地の保全はラムサール条約のもとで世界規模で推進されており水鳥の生息地として重要です',
+        '外来種の拡散は在来の生態系に深刻なダメージを与えており早急な対策が求められています',
+        '山岳地帯の環境保全は高山生態系の保護と登山者向けの適切な利用管理のバランスが重要です',
+        '農薬や化学肥料の過剰使用は土壌や水質の汚染を引き起こし農業環境の健全性を損なっています',
+        '都市緑化の推進はヒートアイランド現象の緩和と市民の生活環境の向上に効果的な施策です',
+        '水資源の持続可能な管理は気候変動による降水パターンの変化に対応するために不可欠な課題です',
+        '自然エネルギーを活用した分散型エネルギーシステムの構築が脱炭素社会の実現に向けて進んでいます',
+        '生態系サービスの経済的評価は自然資本の重要性を社会に広く認識させるための有効なアプローチです',
+        '野生動物との共存は都市近郊での出没が増加する中で地域住民と行政が連携した対策が求められています',
+        '海岸線の侵食は波浪エネルギーの増加や砂浜の減少により全国的に深刻な問題となっています',
+        '土砂災害の防止対策は山地が多い日本において国民の生命と財産を守るために極めて重要です',
+      ];
+
+      var TARGET_MIN = 500000;
+      var TARGET_MAX = 510000;
+
+      var html = '';
+      var totalChars = 0;
+      var counter = 1;
+
+      while (totalChars < TARGET_MIN) {
+        var base = BASE_TEXTS[(counter - 1) % BASE_TEXTS.length];
+        var text = base + ' P07-' + String(counter).padStart(6, '0');
+        html += '<div>' + text + '</div>\n';
+        totalChars += text.length;
+        if (totalChars >= TARGET_MAX) { counter++; break; }
+        counter++;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('char-count').textContent =
+        document.body.innerText.replace(/\s+/g, ' ').length.toLocaleString() + ' 文字';
+    })();
+  </script>
+</body>
+</html>
